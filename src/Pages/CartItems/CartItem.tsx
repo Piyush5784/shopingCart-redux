@@ -1,14 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import { MdDelete } from "react-icons/md";
-import { FaMinus, FaPlus, FaStar } from "react-icons/fa6";
+import { FaMinus, FaPlus } from "react-icons/fa6";
 import {
   addToCart,
   decreaseQuantityFromCart,
   removeFromCart,
 } from "../../store/cartItems/cartItemsAction";
 import { MouseEvent } from "react";
-import { addToWishList } from "../../store/wishlistItems/WishListAction";
 import toast from "react-hot-toast";
 
 export const CartItem = () => {
@@ -19,9 +18,9 @@ export const CartItem = () => {
     (sum, c) => sum + Math.floor(c.price * c.quantity),
     0
   );
-  const wishListItems = useSelector(
-    (state: RootState) => state.WishListReducer.wishList
-  );
+  // const wishListItems = useSelector(
+  //   (state: RootState) => state.WishListReducer.wishList
+  // );
   const dispath = useDispatch();
   function addToCartHandler(
     e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
@@ -31,18 +30,19 @@ export const CartItem = () => {
     dispath(addToCart(id));
   }
 
-  function addToWishListHandler(
-    e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
-    id: number
-  ) {
-    e.preventDefault();
-    dispath(addToWishList(id));
-  }
+  // function addToWishListHandler(
+  //   e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
+  //   id: number
+  // ) {
+  //   e.preventDefault();
+  //   dispath(addToWishList(id));
+  // }
 
   function decreaseQuantity(
     e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
     id: number
   ) {
+    e.preventDefault();
     dispath(decreaseQuantityFromCart(id));
   }
 

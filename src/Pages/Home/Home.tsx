@@ -9,7 +9,6 @@ import { CiStar } from "react-icons/ci";
 import {
   addToWishList,
   removeFromWishlist,
-  WishlistItemMoveToCart,
 } from "../../store/wishlistItems/WishListAction";
 import { FaStar } from "react-icons/fa6";
 import toast from "react-hot-toast";
@@ -35,14 +34,14 @@ export default function Home() {
     toast.success("Item added to cart");
   }
 
-  function moveToCartHandler(
-    e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
-    id: number
-  ) {
-    e.preventDefault();
-    dispatch(WishlistItemMoveToCart(id));
-    dispatch(addToCart(id));
-  }
+  // function moveToCartHandler(
+  //   e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
+  //   id: number
+  // ) {
+  //   e.preventDefault();
+  //   dispatch(WishlistItemMoveToCart(id));
+  //   dispatch(addToCart(id));
+  // }
 
   function removeFromWishlistHandler(
     e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,

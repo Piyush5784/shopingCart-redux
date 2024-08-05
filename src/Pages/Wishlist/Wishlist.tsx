@@ -9,7 +9,6 @@ import {
   WishlistItemMoveToCart,
 } from "../../store/wishlistItems/WishListAction";
 import { MouseEvent } from "react";
-import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 export const Wishlist = () => {
@@ -17,18 +16,9 @@ export const Wishlist = () => {
     (state: RootState) => state.WishListReducer.wishList
   );
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const cartItems = useSelector(
     (state: RootState) => state.CartItemsReducer.cartItems
   );
-
-  function addToCartHandler(
-    e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
-    id: number
-  ) {
-    e.preventDefault();
-    dispatch(addToCart(id));
-  }
 
   function moveToCartHandler(
     e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
