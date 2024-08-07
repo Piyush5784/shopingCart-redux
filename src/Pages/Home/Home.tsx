@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Items } from "../../lib/AllItems";
-
+// import { Items } from "../../lib/AllItems";
 import { addToCart } from "../../store/cartItems/cartItemsAction";
 import { MouseEvent } from "react";
 import { RootState } from "../../store/store";
@@ -12,9 +11,13 @@ import {
 } from "../../store/wishlistItems/WishListAction";
 import { FaStar } from "react-icons/fa6";
 import toast from "react-hot-toast";
+import Sidebar from "../../components/Sidebar";
 
 export default function Home() {
   const dispatch = useDispatch();
+  const Items = useSelector(
+    (state: RootState) => state.FilterItemsReducer.FilterItems
+  );
   const cartItems = useSelector(
     (state: RootState) => state.CartItemsReducer.cartItems
   );
@@ -63,6 +66,7 @@ export default function Home() {
   return (
     <>
       <div className="flex">
+        <Sidebar />
         <div className="border">
           <p className="text-center font-bold text-xl">Home</p>
           <div className="flex flex-wrap">

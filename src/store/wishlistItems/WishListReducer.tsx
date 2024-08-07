@@ -1,15 +1,6 @@
 import { Add, moveToCart, remove } from "./Constant";
 import { Items as AllItems } from "../../lib/AllItems";
-
-type WishList = {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: { rate: number; count: number };
-};
+import { ItemsType as WishList, actionType } from "../../lib/Types";
 
 type initialStateType = {
   wishList: WishList[];
@@ -17,11 +8,6 @@ type initialStateType = {
 
 const initialState: initialStateType = {
   wishList: [],
-};
-
-type actionType = {
-  type: string;
-  id: number;
 };
 
 export function WishListReducer(
